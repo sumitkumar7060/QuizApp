@@ -14,26 +14,17 @@ export const FormMain = () => {
 
   const [added, setadded] = useState(false);
 
-  const [answerLength, setanswerLength] = useState(false);
-
   useEffect(() => {
     const timeOut = setTimeout(() => {
       if (added) {
         setadded(false);
       }
-    }, 1000);
-
-    const timeOut2 = setTimeout(() => {
-      if (answerLength) {
-        setanswerLength(false);
-      }
-    }, 1000);
+    }, 600);
 
     return () => {
       clearTimeout(timeOut);
-      clearTimeout(timeOut2);
     };
-  }, [added, answerLength]);
+  }, [added]);
 
   // all the ref for collecting user info and data //
   const answerRef = useRef();
@@ -78,21 +69,18 @@ export const FormMain = () => {
       return;
     }
 
-    if (answers.length > 2) {
-      const Question = {
-        question: questionRef.current.value,
-        answers: answers,
-        id: count,
-      };
+    const Question = {
+      question: questionRef.current.value,
+      answers: answers,
+      id: count,
+    };
 
-      setcount((prev) => prev + 1);
-      setquestion((prev) => [...prev, Question]);
-      setanswers([]);
-      setadded(true);
-      questionRef.current.value = "";
-    } else {
-      setanswerLength(true);
-    }
+    setcount((prev) => prev + 1);
+    setquestion((prev) => [...prev, Question]);
+    setanswers([]);
+    setadded(true);
+
+    questionRef.current.value = "";
   };
 
   const onDeleteHandler = (id) => {
@@ -167,16 +155,6 @@ export const FormMain = () => {
                 transition={{ duration: 0.3 }}
               >
                 Question has been added!
-              </motion.p>
-            )}
-            {answerLength && (
-              <motion.p
-                style={{ color: "red" }}
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                there should be more than 2 options!
               </motion.p>
             )}
           </div>

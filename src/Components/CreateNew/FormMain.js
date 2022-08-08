@@ -14,17 +14,26 @@ export const FormMain = () => {
 
   const [added, setadded] = useState(false);
 
+  const [answerLength, setanswerLength] = useState(false);
+
   useEffect(() => {
     const timeOut = setTimeout(() => {
       if (added) {
         setadded(false);
       }
-    }, 600);
+    }, 1000);
+
+    const timeOut2 = setTimeout(() => {
+      if (answerLength) {
+        setanswerLength(false);
+      }
+    }, 1000);
 
     return () => {
       clearTimeout(timeOut);
+      clearTimeout(timeOut2);
     };
-  }, [added]);
+  }, [added, answerLength]);
 
   // all the ref for collecting user info and data //
   const answerRef = useRef();
@@ -69,18 +78,21 @@ export const FormMain = () => {
       return;
     }
 
-    const Question = {
-      question: questionRef.current.value,
-      answers: answers,
-      id: count,
-    };
+    if (answers.length > 2) {
+      const Question = {
+        question: questionRef.current.value,
+        answers: answers,
+        id: count,
+      };
 
-    setcount((prev) => prev + 1);
-    setquestion((prev) => [...prev, Question]);
-    setanswers([]);
-    setadded(true);
-
-    questionRef.current.value = "";
+      setcount((prev) => prev + 1);
+      setquestion((prev) => [...prev, Question]);
+      setanswers([]);
+      setadded(true);
+      questionRef.current.value = "";
+    } else {
+      setanswerLength(true);
+    }
   };
 
   const onDeleteHandler = (id) => {
@@ -157,6 +169,16 @@ export const FormMain = () => {
                 Question has been added!
               </motion.p>
             )}
+            {answerLength && (
+              <motion.p
+                style={{ color: "red" }}
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                there should be more than 2 options!
+              </motion.p>
+            )}
           </div>
 
           <div className="form-submit-answers form-padding d-flex">
@@ -179,13 +201,9 @@ export const FormMain = () => {
                 placeholder="answer!"
                 ref={answerRef}
               />
-              <input
-                type="checkbox"
-                name="correct"
-                id=""
-                className="check-box"
-                ref={correctRef}
-              />
+              <div className="check-box">
+                <input type="checkbox" name="correct" id="" ref={correctRef} />
+              </div>
               <label style={{ fontSize: "12px" }}>correct</label>
             </div>
 

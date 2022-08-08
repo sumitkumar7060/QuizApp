@@ -10,6 +10,28 @@ a {
 li {
   list-style: none;
 }
+
+/* answer circle */
+
+.answer-circle {
+  width: 15px;
+  height: 15px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+/* checkbox */
+.check-box {
+  width: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*  */
+
 /* navbar */
 
 .navbar {
@@ -59,8 +81,16 @@ li {
   width: 350px;
   height: 350px;
   margin: 20px 30px;
+  overflow: hidden;
 }
-
+.home-img img {
+  filter: blur(0.65px);
+}
+.home-card-heading {
+  position: absolute;
+  text-shadow: 0px 2px 5px rgb(206, 206, 206);
+  z-index: 10;
+}
 /* ///// */
 
 /* home page */
@@ -194,10 +224,7 @@ li {
 .main-inputs input {
   margin: 0 5px;
 }
-.check-box {
-  width: 10px;
-  height: 10px;
-}
+
 .form-submit-answers {
   width: 100%;
   height: 50px;
@@ -517,7 +544,7 @@ li {
     height: 100px;
   }
   .submit-container {
-    width: 110px;
+    width: 95px;
     margin: 5px 10px;
   }
   .quiz-heading h1 {

@@ -90,20 +90,7 @@ export const PlayQuiz = () => {
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt
           ullam deserunt labore perspiciatis praesentium? Perferendis fugit
           excepturi quod, assumenda, tempora eos ad dolore, quos porro a facere
-          deleniti. Esse sint asperiores modi ipsa veritatis accusamus veniam
-          illo distinctio quia repudiandae quam nam ad ipsum, facilis beatae
-          aliquid aperiam vero eligendi error? Quas vitae, natus voluptatum
-          reiciendis repudiandae fuga sunt unde, officiis officia autem quia
-          eligendi error possimus et quasi libero! Amet reiciendis impedit,
-          soluta nisi harum voluptatibus vero saepe dicta quae excepturi dolorum
-          placeat, praesentium facilis labore asperiores. A, dolores
-          voluptatibus accusamus laboriosam quam placeat odio sapiente
-          voluptatem sed hic tenetur laborum cumque saepe natus nostrum,
-          repellat ipsa eos ipsum provident. Sapiente dolore quis consequuntur
-          dolor dolorem fugit doloremque velit molestiae perferendis aspernatur,
-          consequatur itaque quas ad atque, distinctio ipsam. Dolorum aspernatur
-          dolorem accusantium libero nulla exercitationem facere maiores quis
-          natus alias ratione quae harum, magnam omnis quo praesentium unde?
+          deleniti.
         </div>
 
         <div className="input-name">
